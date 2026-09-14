@@ -1,0 +1,101 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Data;
+using WebApplication1.Models;
+
+namespace WebApplication1.Controllers
+{
+    public class ContactController : Controller
+    {
+        private readonly ContactContext _context;
+
+        public ContactController(ContactContext context)
+        {
+            _context = context;
+        }
+
+        // GET: /Contact
+        public async Task<IActionResult> Index()
+        {
+            var list = await _context.Contacts.AsNoTracking().ToListAsync();
+            return View(list);
+        }
+
+        // GET: /Contact/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+            var contact = await _context.Contacts.FindAsync(id);
+            if (contact == null) return NotFound();
+            return View(contact);
+        }
+
+        // GET: /Contact/Create
+        public IActionResult Create() => View();
+
+        // POST: /Contact/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ContactDetails model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            _context.Add(model);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: /Contact/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null) return NotFound();
+            var contact = await _context.Contacts.FindAsync(id);
+            if (contact == null) return NotFound();
+            return View(contact);
+        }
+
+        // POST: /Contact/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, ContactDetails model)
+        {
+            if (id != model.Id) return BadRequest();
+            if (!ModelState.IsValid) return View(model);
+
+            try
+            {
+                _context.Update(model);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!await _context.Contacts.AnyAsync(e => e.Id == id)) return NotFound();
+                throw;
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: /Contact/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            var contact = await _context.Contacts.FindAsync(id);
+            if (contact == null) return NotFound();
+            return View(contact);
+        }
+
+        // POST: /Contact/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var contact = await _context.Contacts.FindAsync(id);
+            if (contact != null)
+            {
+                _context.Contacts.Remove(contact);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}
