@@ -1,10 +1,10 @@
-﻿@model WebApplication1.Models.ContactDetails
+﻿@model WebApplication1.Models.ReservationDetails
 
 @{
-    ViewData["Title"] = "Create Contact";
+    ViewData["Title"] = "Create Reservation";
 }
 
-<h1>Leave a Message:</h1>
+<h1>Set a Reservation:</h1>
 
 <form asp-action="Create" method="post">
     <div class="form-group">
@@ -23,10 +23,21 @@
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Message">Leave a comment:</label>
-        <textarea asp-for="Message" class="form-control"></textarea>
-        <span asp-validation-for="Message" class="text-danger"></span>
+        <label asp-for="R_Size">Number of Guests:</label>
+        <input asp-for="R_Size" class="form-control">
+        <span asp-validation-for="R_Size" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="R_Date">Reservation Date:</label>
+        <input asp-for="R_Date" type="date" class="form-control">
+        <span asp-validation-for="R_Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="R_Time">Reservation time:</label>
+        <input asp-for="R_Time" type="time" class="form-control">
+        <span asp-validation-for="R_Time" class="text-danger"></span>
+    </div>
+
     <button type="submit" class="btn btn-primary">Save</button>
     <a asp-action="Index" class="btn btn-secondary">Back</a>
 </form>

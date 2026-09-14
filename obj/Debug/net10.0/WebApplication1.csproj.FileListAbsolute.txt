@@ -228,6 +228,7 @@ C:\Users\Lenovo\source\repos\WebApplication1\bin\Debug\net10.0\tr\Microsoft.Code
 C:\Users\Lenovo\source\repos\WebApplication1\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Lenovo\source\repos\WebApplication1\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Lenovo\source\repos\WebApplication1\bin\Debug\net10.0\Dapper.dll
-C:\Users\Lenovo\source\repos\WebApplication1\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\Lenovo\source\repos\WebApplication1\obj\Debug\net10.0\compressed\jnw8xw3sck-{0}-ccberob7cx-ccberob7cx.gz
 C:\Users\Lenovo\source\repos\WebApplication1\obj\Debug\net10.0\compressed\pwghj04u8c-{0}-ccberob7cx-ccberob7cx.gz
+C:\Users\Lenovo\source\repos\WebApplication1\obj\Debug\net10.0\WebApplication1.sourcelink.json
+C:\Users\Lenovo\source\repos\WebApplication1\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

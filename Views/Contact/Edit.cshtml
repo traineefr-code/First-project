@@ -4,28 +4,28 @@
     ViewData["Title"] = "Edit Contact";
 }
 
-<h1>Edit Contact</h1>
+<h1>Edit Contact Details:</h1>
 
 <form asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
     <!-- same fields as Create -->
     <div class="form-group">
-        <label asp-for="FirstName"></label>
+        <label asp-for="FirstName">First Name:</label>
         <input asp-for="FirstName" class="form-control" />
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="LastName"></label>
+        <label asp-for="LastName">Last Name:</label>
         <input asp-for="LastName" class="form-control" />
         <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Email"></label>
+        <label asp-for="Email">Email Address:</label>
         <input asp-for="Email" class="form-control" />
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Message"></label>
+        <label asp-for="Message">Comment:</label>
         <textarea asp-for="Message" class="form-control"></textarea>
         <span asp-validation-for="Message" class="text-danger"></span>
     </div>
