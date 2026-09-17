@@ -19,6 +19,11 @@ namespace WebApplication1.Controllers
         public IActionResult About()
         {
             return View();
+        }    
+            
+        public IActionResult Menu()
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
